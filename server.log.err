@@ -1,0 +1,64 @@
+INFO:     Started server process [1708]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:51360 - "WebSocket /ws/live" [accepted]
+INFO:     connection open
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 92, in send
+    await self._send(message)
+  File "C:\Users\Lenovo\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\Lenovo\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_sansio_impl.py", line 436, in send
+    raise ClientDisconnected()
+uvicorn.protocols.utils.ClientDisconnected
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Lenovo\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_sansio_impl.py", line 409, in run_asgi
+    result = await self.app(self.scope, self.receive, self.send)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Roaming\Python\Python314\site-packages\uvicorn\middleware\proxy_headers.py", line 63, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Roaming\Python\Python314\site-packages\fastapi\applications.py", line 1216, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\Lenovo\AppData\Roaming\Python\Python314\site-packages\starlette\applications.py", line 96, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\Lenovo\AppData\Roaming\Python\Python314\site-packages\starlette\middleware\errors.py", line 151, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\Lenovo\AppData\Roaming\Python\Python314\site-packages\fastapi\telemetry\_asgi.py", line 151, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\Lenovo\AppData\Roaming\Python\Python314\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\Lenovo\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\Lenovo\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\Lenovo\AppData\Roaming\Python\Python314\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\Lenovo\AppData\Roaming\Python\Python314\site-packages\starlette\routing.py", line 676, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\Lenovo\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py", line 2786, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\Lenovo\AppData\Roaming\Python\Python314\site-packages\starlette\routing.py", line 356, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\Lenovo\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py", line 191, in app
+    await wrap_app_handling_exceptions(app, session)(scope, receive, send)
+  File "C:\Users\Lenovo\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\Lenovo\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\Lenovo\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py", line 188, in app
+    await func(session)
+  File "C:\Users\Lenovo\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py", line 829, in app
+    await dependant.call(**solved_result.values)
+  File "C:\Users\Lenovo\Desktop\hackathon research\simulation of iot\irsm-sim\backend\app.py", line 65, in live
+    await ws.send_json(pkt)
+  File "C:\Users\Lenovo\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 182, in send_json
+    await self.send({"type": "websocket.send", "text": text})
+  File "C:\Users\Lenovo\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 95, in send
+    raise WebSocketDisconnect(code=1006)
+starlette.websockets.WebSocketDisconnect

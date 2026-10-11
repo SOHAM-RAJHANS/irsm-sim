@@ -1,0 +1,7 @@
+IRSM Validation Log — Task 9
+T1 Normal PASS — classify(40,2,2) overall == Normal
+T2 Warning PASS — 3x classify(60,2,2) overall == Warning
+T3 Maintenance Required PASS — 3x classify(40,8,2) overall == Maintenance Required
+T4 Health endpoint PASS — GET /api/health == 200 {"status":"ok"}
+TOTAL: 14 passed (test_health 1, test_physics 2, test_thresholds 4, test_stats 3, test_scenarios 2, test_api 1, test_validation 1)
+NOTE: live server smoke (Step 3) skipped per task instruction — controller does smoke.
